@@ -1,0 +1,118 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/styles/default.min.css"
+    />
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- <script>
+      document.write(
+        '<script src="http://' +
+          (location.host || "localhost").split(":")[0] +
+          ':35729/livereload.js?snipver=1"></' +
+          "script>"
+      );
+    </script> -->
+    <script src="/script.js" defer></script>
+    <title>RudyP | Blog 2 </title>
+  </head>
+  <body>
+    <center>
+      <div class="shadow6 box">
+        <h1 class="h1"><span class="span">Rudy's</span> Blog</h1>
+        <h2>Viewing Source Code Just Got Easier</h2>
+        <!-- <button class="fun">Hover Me!</button> -->
+        <p>
+     The Dublinschools district disabled CTRl + U and right-click to view source. I am not sure why they would do that beacuse 
+     there is no bypassi or anything harmful with viewing a page's source. Currently the only workaround is going into the search bar 
+     and typing something like this: <pre><code>view-source://{WEBSITE-URL}</code></pre> But by using javascript you can code a bookmarklet
+     (which is basically code being run in a bookmark) and the bookmarklet can display page source in a new page. I have coded a bookmarklet
+     for the very same purpose. It is faster then typing in view source. Just visit <a href="//source-checker.glitch.me">here</a> to access the 
+     bookmarklet (Ctrl + Shift + B, to show the bookmark bar). 
+        </p><br />
+        <p>If you are into the technical terms of the code then you can look at the source below.</p>
+     <br /> 
+        <pre> <code class="pre code language-javascript shadow7" style=" width:90%; padding: 15px;" id="copy">
+var x = window.open("");
+// Creates a about:blank window
+x.document.title = "View-Source: " + location.href;
+// Sets title of new window.
+
+var heading = x.document.createElement("H1");
+(heading.innerText = "Viewing Source Of: "), (heading.style.fontFamily = "Source Code Pro, monospace"), (heading.style.padding = "10px"), x.document.body.appendChild(heading);
+// Sets the header.
+
+var smallheading = x.document.createElement("h3");
+(smallheading.innerText = location.href), (smallheading.style.fontFamily = "Source Code Pro, monospace"), (smallheading.style.padding = "10px"), x.document.body.appendChild(smallheading);
+// Sets the small header which includes the site url/title.
+
+var headingDIV = document.createElement("div");
+x.document.body.appendChild(headingDIV), headingDIV.appendChild(heading), headingDIV.appendChild(smallheading), (headingDIV.style.background = "white");
+// Creates a div and assigns it to both headers.
+
+var hr = x.document.createElement("hr");
+x.document.body.appendChild(hr);
+// Divider between header and source code.
+
+
+var s = document.createElement("script");
+(s.src = "https://source-checker.glitch.me/prism.js"), x.document.head.appendChild(s);
+// Import highlight code (JAVASCRIPT.)
+
+var l = document.createElement("link");
+(l.rel = "stylesheet"), (l.href = "https://source-checker.glitch.me/prism.css"), x.document.head.appendChild(l);
+// Import highlight code (CSS.)
+
+var preTag = document.createElement("pre");
+x.document.body.appendChild(preTag);
+// Create PREtag for source code formatting.
+
+var codeTag = document.createElement("code");
+(codeTag.className = "language-html"), (codeTag.textContent = document.documentElement.outerHTML), preTag.appendChild(codeTag);
+// Creates CODEtag for source code formatting.
+        </code>
+
+        </pre>
+        Read the comments on how the code works. 
+<br /><br>
+        <button type="button" class="fun" onclick="copyEvent('copy')">
+            Copy Code</button>      
+       <br /><br />
+      </div>
+
+      <br />
+
+      <div class="shadow7">
+        <button
+          class="fun"
+          onClick="window.location.replace('https://rudyp.me')"
+        >
+          Home
+        </button>
+      </div>
+    </center>
+  </body>
+  <script>
+    function copyEvent(id) {
+      var str = document.getElementById(id);
+      window.getSelection().selectAllChildren(str);
+      document.execCommand("Copy");
+      Swal.fire({
+        title: "Code Copied",
+        text: "Code has been successfully copied to clipboard",
+        icon: "success",
+        confirmButtonText: "Cool",
+      });
+    }
+  </script>
+</html>
+
+<!-- 
+
+ -->

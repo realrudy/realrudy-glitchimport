@@ -1,0 +1,111 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/styles/default.min.css"
+    />
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- <script>
+      document.write(
+        '<script src="http://' +
+          (location.host || "localhost").split(":")[0] +
+          ':35729/livereload.js?snipver=1"></' +
+          "script>"
+      );
+    </script> -->
+    <script src="/script.js" defer></script>
+    <title>RudyP | Blog 1</title>
+  </head>
+  <body>
+    <center>
+      <div class="shadow6 box">
+        <h1 class="h1"><span class="span">Rudy's</span> Blog</h1>
+        <h2>Student Coded Games Sites Got Updated.</h2>
+        <!-- <button class="fun">Hover Me!</button> -->
+        <p>
+          You may know how annoying it is when Blocksi blocks a page you want to
+          visit. Blocksi was invented just for that sole purpose, student
+          filtering software. So what if we could reverse it. Blocking websites
+          from teachers? That is impossible. No not really since Teachers Don't
+          have the student version of blocksi that means that you can code a
+          script to redirect users who don't have the blocksi "block" page show
+          up. So if the blocksi page shows up for me and it blocks a site then I
+          could code it so then it would let me access the site but not let
+          teachers in. Well, Derin and I did it. We coded a script that would do
+          exactly what I just said.
+        </p>
+     <br>     <button type="button" class="fun" onclick="copyEvent('copy')">
+      Copy Code</button
+    ><br>
+        <pre> <code class="pre code language-javascript shadow7" style=" padding: 15px;" id="copy">
+function noBlocksi() {
+  location.replace("https://google.com");
+}
+if (localStorage.noBlocksi) {
+  noBlocksi();
+} else {
+  var frame = document.createElement("iframe");
+  frame.style.display = "none";
+  frame.src = "/ghlpmldmjjhmdgmneoaibbegkjjbonbk";
+  document.documentElement.appendChild(frame);
+  frame.onload = function () {
+    setTimeout(function () {
+      if (frame.contentWindow.document) {
+        // Frame wasn't redirected, likely no Blocksi
+        localStorage.noBlocksi = true;
+        noBlocksi();
+        }
+      }, 500);
+    };
+  }
+          
+        </code>
+
+        </pre>
+   
+        <p>
+          If you put that code in a script.js file or a script tag then it will
+          work. After you put the code in it should let you stay on the site
+          (Make sure you are using your school Chromebook). If you use a PC you
+          have at home and try to visit the website you made, it will redirect
+          you to google. If you have a basic understanding of Javascript then
+          you can change the redirect to something else or make it more complex.
+        </p>
+      </div>
+
+      <br />
+
+      <div class="shadow7">
+        <button
+          class="fun"
+          onClick="window.location.replace('https://rudyp.me')"
+        >
+          Home
+        </button>
+      </div>
+    </center>
+  </body>
+  <script>
+    function copyEvent(id) {
+      var str = document.getElementById(id);
+      window.getSelection().selectAllChildren(str);
+      document.execCommand("Copy");
+      Swal.fire({
+        title: "Code Copied",
+        text: "Code has been successfully copied to clipboard",
+        icon: "success",
+        confirmButtonText: "Cool",
+      });
+    }
+  </script>
+</html>
+
+<!-- 
+
+ -->
